@@ -1,0 +1,33 @@
+media:
+  input: media
+  output: /media
+
+content:
+  - name: news
+    label: اخبار و اطلاعیه‌ها
+    type: file
+    path: data/news.json
+    format: json
+    list: true
+    fields:
+      - name: title
+        label: عنوان خبر
+        type: string
+        required: true
+      - name: category
+        label: دسته‌بندی
+        type: string
+        required: true
+      - name: summary
+        label: خلاصه خبر
+        type: text
+        required: true
+      - name: date
+        label: تاریخ انتشار
+        type: string
+      - name: icon
+        label: نماد
+        type: string
+      - name: published
+        label: انتشار در سایت
+        type: boolean
