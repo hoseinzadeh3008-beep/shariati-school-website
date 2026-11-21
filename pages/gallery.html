@@ -90,4 +90,5 @@ lightbox.addEventListener('click',event=>{if(event.target===lightbox)lightbox.cl
 document.addEventListener('keydown',event=>{if(event.key==='Escape')lightbox.classList.remove('open')});
 fetch('../data/gallery.json',{cache:'no-store'}).then(response=>{if(!response.ok)throw new Error('gallery unavailable');return response.json()}).then(items=>{galleryItems=Array.isArray(items)?items:[];renderFilters();renderGallery()}).catch(()=>{empty.hidden=false;empty.textContent='دریافت تصاویر ممکن نشد. لطفاً بعداً دوباره مراجعه کنید.'});
 </script>
+<script src="../js/site-content.js"></script>
 </body></html>
