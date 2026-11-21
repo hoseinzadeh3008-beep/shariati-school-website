@@ -22,6 +22,24 @@ section{padding:76px 0}.section-head{text-align:center;max-width:690px;margin:0 
 .news-intro{display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap;background:linear-gradient(110deg,#effafb,#f7fcfd);border:1px solid var(--line);border-radius:20px;padding:18px 22px;margin-bottom:20px}.news-intro strong{font-size:15px}.news-intro p{margin:3px 0 0;color:var(--muted);font-size:12px}.news-mark{width:44px;height:44px;flex:0 0 44px;border-radius:14px;background:#dff5f3;color:#078b8d;display:grid;place-items:center;font-size:22px}.news-intro-copy{display:flex;align-items:center;gap:13px}.news-status{font-size:11px;color:#087e8c;background:#fff;border:1px solid #cce9e8;border-radius:30px;padding:6px 12px}.notice-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:17px}.notice{border:1px solid var(--line);border-radius:19px;padding:23px;background:#fff;position:relative;overflow:hidden;transition:.2s;min-height:205px}.notice:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-color:#a8dce2}.notice:after{content:"";position:absolute;width:100px;height:100px;border-radius:50%;background:#eef9fa;left:-38px;bottom:-48px}.notice-top{display:flex;align-items:center;justify-content:space-between;gap:10px}.notice .tag{font-size:11px;color:#078b8d;background:#e9f8f6;padding:5px 10px;border-radius:20px}.notice-icon{width:40px;height:40px;border-radius:13px;background:#f0f8fc;color:var(--blue);display:grid;place-items:center;font-size:19px}.notice h3{font-size:16px;margin:15px 0 7px}.notice p{font-size:12px;color:var(--muted);margin:0;line-height:2}.notice-foot{font-size:10px;color:#78909b;margin-top:15px;position:relative;z-index:1}.news-note{margin-top:18px;padding:12px 15px;border-right:3px solid var(--teal);background:#f5fbfc;color:#66808b;border-radius:10px;font-size:12px}
 .contact{background:linear-gradient(120deg,#eaf8fb,#f4fbfc)}.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:25px}.contact-box{background:#fff;border:1px solid var(--line);border-radius:20px;padding:25px}.contact-box h3{margin:0 0 15px}.contact-item{display:flex;gap:12px;padding:10px 0;border-bottom:1px solid #edf3f4;font-size:14px}.contact-item:last-child{border:0}.contact-item b{color:var(--teal);min-width:78px}
 footer{background:#12384b;color:#d9edf1;padding:28px 0;font-size:12px}.footer-inner{display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap}.footer-inner span{color:#9fc4cd}
+
+.org-chart{background:linear-gradient(145deg,#f5fbfc,#edf8fa)}
+.org-wrap{max-width:1000px;margin:auto}
+.org-manager{width:min(330px,100%);margin:0 auto 34px;background:linear-gradient(135deg,#087e9b,#13a89e);color:#fff;border-radius:20px;padding:22px;text-align:center;box-shadow:0 14px 30px #087e9b25;position:relative}
+.org-manager:after{content:"";position:absolute;left:50%;bottom:-35px;height:35px;border-left:2px solid #9bcfd5}
+.org-role{font-size:12px;opacity:.9}.org-manager h3{font-size:21px;margin:5px 0}.org-branch-title{text-align:center;color:#087e9b;font-weight:800;margin:12px 0 16px}
+.org-deputies{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px;position:relative;margin-bottom:30px}
+.org-deputies:before{content:"";position:absolute;top:-17px;left:10%;right:10%;border-top:2px solid #b6dce0}
+.org-node{background:#fff;border:1px solid #dcebef;border-radius:15px;padding:15px 10px;text-align:center;box-shadow:0 7px 20px rgba(22,83,102,.06);position:relative}
+.org-deputies .org-node:before{content:"";position:absolute;left:50%;top:-18px;height:17px;border-left:2px solid #b6dce0}
+.org-node strong{display:block;font-size:13px;color:#153447}.org-node small{display:block;color:#718995;font-size:11px;margin-top:4px}
+.org-fields{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.org-fields .org-node{border-top:3px solid #13a89e}
+.org-fields .org-node strong{font-size:13px}
+.org-note{text-align:center;color:#718995;font-size:11px;margin:18px 0 0}
+@media(max-width:850px){.org-deputies{grid-template-columns:repeat(3,minmax(0,1fr))}.org-deputies:before{display:none}.org-deputies .org-node:before{display:none}.org-fields{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:520px){.org-deputies{grid-template-columns:repeat(2,minmax(0,1fr))}.org-fields{grid-template-columns:repeat(2,minmax(0,1fr))}.org-node{padding:13px 8px}}
+
 @media(max-width:850px){.navlinks{display:none;position:absolute;top:82px;right:4%;left:4%;background:white;border:1px solid var(--line);border-radius:15px;padding:18px;box-shadow:var(--shadow);flex-direction:column;align-items:stretch;gap:12px}.navlinks.open{display:flex}.menu-btn{display:block}.nav-cta{display:none}.hero-grid,.about-grid,.contact-grid{grid-template-columns:1fr}.hero{padding:55px 0}.hero-art{min-height:280px}.cards{grid-template-columns:repeat(2,1fr)}.notice-grid{grid-template-columns:1fr 1fr}}
 @media(max-width:520px){.topline .container{justify-content:center}.brand strong{font-size:17px}.brand small{font-size:12px}.logo{width:44px;height:44px;flex:0 0 44px}.hero-art{min-height:245px}.orbit{width:245px}.school-icon{width:115px;height:115px;font-size:50px}.float.one{right:-5px}.float.two{left:-5px}.cards,.notice-grid,.feature-list{grid-template-columns:1fr 1fr}section{padding:55px 0}.section-head h2{font-size:25px}}
 </style>
@@ -42,6 +60,43 @@ footer{background:#12384b;color:#d9edf1;padding:28px 0;font-size:12px}.footer-in
 <div class="actions"><a class="btn primary" href="#fields">آشنایی با رشته‌ها</a><a class="btn secondary" href="/pages/about.html">درباره هنرستان</a></div>
 </div><div class="hero-art"><div class="orbit"><div class="school-icon">⚙</div><div class="float one">دانش فنی و مهارت</div><div class="float two">خلاقیت و نوآوری</div><div class="float three">آینده‌سازی</div></div></div></div></section>
 <section id="about"><div class="container about-grid"><div class="about-panel"><div class="big">✦</div><strong>مهارت امروز، آینده روشن فردا</strong><span style="color:#64818d;font-size:13px">هنرستان دکتر علی شریعتی اسفراین</span></div><div class="about-copy"><span class="kicker">درباره هنرستان</span><h3>مسیر آموزش تا مهارت‌آموزی</h3><p>هنرستان دکتر علی شریعتی اسفراین با تمرکز بر آموزش‌های فنی و حرفه‌ای، بستری برای یادگیری دانش تخصصی و کسب تجربه‌های مهارتی فراهم می‌کند. هنرجویان در کنار آموزش‌های نظری، با زمینه‌های گوناگون فنی و کارگاهی آشنا می‌شوند.</p><div class="feature-list"><div class="feature"><b>✓</b> آموزش‌های تخصصی</div><div class="feature"><b>✓</b> تجربه‌های کارگاهی</div><div class="feature"><b>✓</b> پرورش خلاقیت</div><div class="feature"><b>✓</b> آمادگی برای آینده</div></div></div></div></section>
+
+<section class="org-chart" id="organization">
+  <div class="container">
+    <div class="section-head">
+      <span class="kicker">ساختار مدیریتی</span>
+      <h2>چارت سازمانی هنرستان</h2>
+      <p>ساختار مدیریت، معاونت‌ها و سرپرستان رشته‌های آموزشی هنرستان دکتر علی شریعتی اسفراین</p>
+    </div>
+    <div class="org-wrap" aria-label="چارت سازمانی هنرستان">
+      <div class="org-manager">
+        <div class="org-role">مدیریت هنرستان</div>
+        <h3>قاسم حسین‌زاده</h3>
+        <div class="org-role">مدیر هنرستان دکتر علی شریعتی اسفراین</div>
+      </div>
+      <div class="org-branch-title">معاونت‌ها</div>
+      <div class="org-deputies">
+        <div class="org-node"><strong>معاون آموزشی</strong><small>امور آموزشی و برنامه‌ریزی</small></div>
+        <div class="org-node"><strong>معاون اجرایی</strong><small>امور اجرایی و اداری</small></div>
+        <div class="org-node"><strong>معاون فنی و کارگاه</strong><small>امور فنی و کارگاهی</small></div>
+        <div class="org-node"><strong>معاون پرورشی</strong><small>امور تربیتی و فرهنگی</small></div>
+        <div class="org-node"><strong>معاون مالی</strong><small>امور مالی و پشتیبانی</small></div>
+      </div>
+      <div class="org-branch-title">سرپرستان رشته‌های آموزشی</div>
+      <div class="org-fields">
+        <div class="org-node"><strong>مکانیک خودرو</strong><small>سرپرست رشته</small></div>
+        <div class="org-node"><strong>الکتروتکنیک</strong><small>سرپرست رشته</small></div>
+        <div class="org-node"><strong>الکترونیک</strong><small>سرپرست رشته</small></div>
+        <div class="org-node"><strong>متالورژی</strong><small>سرپرست رشته</small></div>
+        <div class="org-node"><strong>ساختمان</strong><small>سرپرست رشته</small></div>
+        <div class="org-node"><strong>ماشین‌ابزار</strong><small>سرپرست رشته</small></div>
+        <div class="org-node"><strong>صنایع چوب</strong><small>سرپرست رشته</small></div>
+      </div>
+      <p class="org-note">نام مسئولان معاونت‌ها و سرپرستان رشته‌ها پس از تکمیل اطلاعات درج خواهد شد.</p>
+    </div>
+  </div>
+</section>
+
 <section class="fields" id="fields"><div class="container"><div class="section-head"><span class="kicker">زمینه‌های آموزشی</span><h2>رشته‌های هنرستان</h2><p>هنرستان در هفت رشته فنی و حرفه‌ای فعالیت دارد. در ادامه، با حوزه آموزشی هر رشته آشنا شوید.</p></div><div class="cards">
 <a class="field-card" href="/pages/field-mechanic.html"><div class="field-icon">🚗</div><h3>مکانیک خودرو</h3><p>شناخت اجزای خودرو، آشنایی با سامانه‌های فنی و یادگیری اصول نگهداری و عیب‌یابی.</p><span class="field-label">آموزش فنی و مهارتی</span></a>
 <a class="field-card" href="/pages/field-electrotechnic.html"><div class="field-icon">⚡</div><h3>الکتروتکنیک</h3><p>آشنایی با مبانی برق، مدارهای الکتریکی و کاربردهای برق در محیط‌های گوناگون.</p><span class="field-label">آموزش فنی و مهارتی</span></a>
