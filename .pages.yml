@@ -5,6 +5,113 @@ media:
   rename: false
 
 content:
+  - name: site_settings
+    label: تنظیمات و محتوای صفحات سایت
+    type: file
+    path: data/site.json
+    format: json
+    fields:
+      - name: brand
+        label: مشخصات عمومی سایت
+        type: object
+        fields:
+          - { name: name, label: نام هنرستان, type: string, required: true }
+          - { name: tagline, label: شعار سایت, type: string }
+          - { name: subline, label: زیرعنوان, type: string }
+      - name: home
+        label: صفحه اصلی
+        type: object
+        fields:
+          - { name: heroEyebrow, label: متن بالای عنوان, type: string }
+          - { name: heroTitle, label: عنوان اصلی, type: string }
+          - { name: heroHighlight, label: واژه رنگی عنوان, type: string }
+          - { name: heroText, label: توضیح صفحه اصلی, type: text }
+          - { name: heroImage, label: تصویر اصلی, type: image }
+          - { name: heroImageAlt, label: توضیح تصویر اصلی, type: string }
+          - { name: heroImageCaption, label: زیرنویس تصویر اصلی, type: string }
+          - { name: aboutKicker, label: برچسب معرفی, type: string }
+          - { name: aboutTitle, label: عنوان معرفی, type: string }
+          - { name: aboutText, label: متن معرفی, type: rich-text }
+          - name: aboutFeatures
+            label: نکات برجسته
+            type: string
+            list: true
+          - { name: organizationTitle, label: عنوان چارت سازمانی, type: string }
+          - { name: organizationSubtitle, label: توضیح چارت سازمانی, type: text }
+          - { name: managerName, label: نام مدیر, type: string }
+          - { name: managerRole, label: عنوان مدیر, type: string }
+          - name: deputies
+            label: معاونت‌ها
+            type: object
+            list: true
+            fields:
+              - { name: role, label: عنوان سمت, type: string, required: true }
+              - { name: names, label: نام مسئول یا مسئولان, type: string }
+          - name: departments
+            label: سرپرستان رشته‌ها
+            type: object
+            list: true
+            fields:
+              - { name: title, label: نام رشته, type: string, required: true }
+              - { name: supervisor, label: نام سرپرست, type: string }
+          - { name: fieldsTitle, label: عنوان بخش رشته‌ها, type: string }
+          - { name: fieldsIntro, label: توضیح بخش رشته‌ها, type: text }
+          - { name: newsTitle, label: عنوان بخش اخبار, type: string }
+          - { name: newsIntro, label: توضیح بخش اخبار, type: text }
+          - { name: contactTitle, label: عنوان بخش تماس, type: string }
+          - { name: contactIntro, label: توضیح بخش تماس, type: text }
+          - { name: contactMessageTitle, label: عنوان پیام هنرستان, type: string }
+          - { name: contactMessage, label: متن پیام هنرستان, type: text }
+      - name: about
+        label: صفحه درباره هنرستان
+        type: object
+        fields:
+          - { name: title, label: عنوان صفحه, type: string }
+          - { name: subtitle, label: زیرعنوان صفحه, type: text }
+          - { name: introTitle, label: عنوان معرفی, type: string }
+          - { name: introText, label: متن معرفی, type: rich-text }
+          - { name: approachTitle, label: عنوان رویکرد آموزشی, type: string }
+          - name: approach
+            label: کارت‌های رویکرد آموزشی
+            type: object
+            list: true
+            fields:
+              - { name: tag, label: برچسب, type: string }
+              - { name: title, label: عنوان, type: string }
+              - { name: description, label: توضیحات, type: text }
+      - name: fieldsPage
+        label: صفحه رشته‌ها
+        type: object
+        fields:
+          - { name: title, label: عنوان صفحه, type: string }
+          - { name: subtitle, label: زیرعنوان صفحه, type: text }
+      - name: fields
+        label: رشته‌های هنرستان
+        type: object
+        list: true
+        fields:
+          - { name: name, label: نام رشته, type: string, required: true }
+          - { name: slug, label: نام فایل صفحه رشته, type: string }
+          - { name: icon, label: نماد رشته, type: string }
+          - { name: description, label: توضیح رشته, type: text }
+      - name: contact
+        label: اطلاعات تماس
+        type: object
+        fields:
+          - { name: title, label: عنوان صفحه, type: string }
+          - { name: subtitle, label: زیرعنوان صفحه, type: text }
+          - { name: address, label: نشانی, type: text }
+          - name: contacts
+            label: شماره‌های تماس
+            type: object
+            list: true
+            fields:
+              - { name: label, label: عنوان شماره, type: string }
+              - { name: phone, label: شماره برای تماس, type: string }
+              - { name: display, label: شماره نمایشی, type: string }
+          - { name: messageTitle, label: عنوان پیام, type: string }
+          - { name: message, label: متن پیام, type: text }
+
   - name: news
     label: اخبار و اطلاعیه‌ها
     type: file
@@ -12,35 +119,14 @@ content:
     format: json
     list: true
     fields:
-      - name: title
-        label: عنوان خبر
-        type: string
-        required: true
-      - name: category
-        label: دسته‌بندی
-        type: string
-        required: true
-      - name: summary
-        label: خلاصه خبر
-        type: text
-        required: true
-      - name: body
-        label: متن کامل خبر
-        type: rich-text
-        options:
-          format: html
-      - name: date
-        label: تاریخ انتشار
-        type: string
-      - name: icon
-        label: نماد
-        type: string
-      - name: image
-        label: تصویر خبر
-        type: image
-      - name: published
-        label: انتشار در سایت
-        type: boolean
+      - { name: title, label: عنوان خبر, type: string, required: true }
+      - { name: category, label: دسته‌بندی, type: string, required: true }
+      - { name: summary, label: خلاصه خبر, type: text, required: true }
+      - { name: body, label: متن کامل خبر, type: rich-text, options: { format: html } }
+      - { name: date, label: تاریخ انتشار, type: string }
+      - { name: icon, label: نماد, type: string }
+      - { name: image, label: تصویر خبر, type: image }
+      - { name: published, label: انتشار در سایت, type: boolean }
 
   - name: gallery
     label: گالری تصاویر
@@ -49,25 +135,15 @@ content:
     format: json
     list: true
     fields:
-      - name: title
-        label: عنوان تصویر
-        type: string
-        required: true
+      - { name: title, label: عنوان تصویر, type: string, required: true }
       - name: category
         label: دسته‌بندی تصویر
         type: string
         required: true
-        description: نام دسته را انتخاب یا وارد کنید؛ برای انتقال تصویر، همین مقدار را تغییر دهید.
-      - name: description
-        label: توضیحات تصویر
-        type: text
-      - name: image
-        label: فایل تصویر
-        type: image
-        required: true
-      - name: alt
-        label: متن جایگزین تصویر
-        type: string
+        description: برای انتقال تصویر به دسته دیگر، مقدار این فیلد را تغییر دهید.
+      - { name: description, label: توضیحات تصویر, type: text }
+      - { name: image, label: فایل تصویر, type: image, required: true }
+      - { name: alt, label: متن جایگزین تصویر, type: string }
 
 settings:
   content:
