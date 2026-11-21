@@ -1,6 +1,8 @@
 media:
-  input: media
-  output: /media
+  input: images
+  output: /images
+  extensions: [jpg, jpeg, png, webp, gif]
+  rename: false
 
 content:
   - name: news
@@ -22,12 +24,57 @@ content:
         label: خلاصه خبر
         type: text
         required: true
+      - name: body
+        label: متن کامل خبر
+        type: rich-text
+        options:
+          format: html
       - name: date
         label: تاریخ انتشار
         type: string
       - name: icon
         label: نماد
         type: string
+      - name: image
+        label: تصویر خبر
+        type: image
       - name: published
         label: انتشار در سایت
         type: boolean
+
+  - name: gallery
+    label: گالری تصاویر
+    type: file
+    path: data/gallery.json
+    format: json
+    list: true
+    fields:
+      - name: title
+        label: عنوان تصویر
+        type: string
+        required: true
+      - name: category
+        label: دسته‌بندی تصویر
+        type: string
+        required: true
+        description: نام دسته را انتخاب یا وارد کنید؛ برای انتقال تصویر، همین مقدار را تغییر دهید.
+      - name: description
+        label: توضیحات تصویر
+        type: text
+      - name: image
+        label: فایل تصویر
+        type: image
+        required: true
+      - name: alt
+        label: متن جایگزین تصویر
+        type: string
+
+settings:
+  content:
+    merge: true
+  commit:
+    templates:
+      create: "افزودن محتوای سایت: {path}"
+      update: "ویرایش محتوای سایت: {path}"
+      delete: "حذف محتوای سایت: {path}"
+      rename: "تغییر نام {oldPath} به {newPath}"
