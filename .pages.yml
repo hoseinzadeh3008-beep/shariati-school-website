@@ -31,7 +31,7 @@ content:
           - { name: heroImageCaption, label: زیرنویس تصویر اصلی, type: string }
           - { name: aboutKicker, label: برچسب معرفی, type: string }
           - { name: aboutTitle, label: عنوان معرفی, type: string }
-          - { name: aboutText, label: متن معرفی, type: rich-text }
+          - { name: aboutText, label: متن معرفی, type: text }
           - name: aboutFeatures
             label: نکات برجسته
             type: string
