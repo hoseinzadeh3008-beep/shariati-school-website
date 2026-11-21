@@ -2,7 +2,7 @@
   const base=location.pathname.includes('/pages/')?'../':'./';
   const text=(el,value)=>{if(el&&value!==undefined)el.textContent=value};
   const make=(tag,cls,value)=>{const el=document.createElement(tag);if(cls)el.className=cls;if(value!==undefined)el.textContent=value;return el};
-  const setParagraphs=(el,value)=>{if(!el||value===undefined)return;el.replaceChildren(...String(value).split(/\\n+/).filter(Boolean).map(line=>make('p','',line)));};
+  const setParagraphs=(el,value)=>{if(!el||value===undefined)return;el.replaceChildren(...String(value).split(String.fromCharCode(10)).filter(Boolean).map(line=>make('p','',line)));};
   try{
     const response=await fetch(base+'data/site.json',{cache:'no-store'});if(!response.ok)throw new Error('site content unavailable');
     const data=await response.json();
@@ -36,7 +36,11 @@
         text(document.querySelector('.hero h1'),data.fieldsPage.title);text(document.querySelector('.hero p'),data.fieldsPage.subtitle);
         const grid=document.querySelector('main.content .grid');if(grid)grid.replaceChildren(...(data.fields||[]).map((f,i)=>{const a=make('a','card');a.href=f.slug;a.append(make('span','tag',String(i+1)),make('h3','',f.name),make('p','',f.description));return a;}));
       }
-      if(path.startsWith('field-')){\n        const field=(data.fields||[]).find(x=>x.slug===path);\n        if(field){document.title=field.name+' | '+data.brand.name;text(document.querySelector('.hero h1'),field.name);text(document.querySelector('.hero p'),field.description);text(document.querySelector('.detail-symbol'),field.icon);const aboutCard=document.querySelector('.detail-card');if(aboutCard){const p=aboutCard.querySelector('p');text(p,field.description);}}\n      }\n      if(path==='contact.html'){
+      if(path.startsWith('field-')){
+        const field=(data.fields||[]).find(x=>x.slug===path);
+        if(field){document.title=field.name+' | '+data.brand.name;text(document.querySelector('.hero h1'),field.name);text(document.querySelector('.hero p'),field.description);text(document.querySelector('.detail-symbol'),field.icon);const aboutCard=document.querySelector('.detail-card');if(aboutCard){const p=aboutCard.querySelector('p');text(p,field.description);}}
+      }
+      if(path==='contact.html'){
         text(document.querySelector('.hero h1'),data.contact.title);text(document.querySelector('.hero p'),data.contact.subtitle);
         const main=document.querySelector('main.content');if(main){main.replaceChildren(make('h2','','اطلاعات تماس'));const card=make('div','card');const row=make('div','contact-row');row.append(make('b','', 'نشانی هنرستان'),make('span','',data.contact.address));card.append(row);(data.contact.contacts||[]).forEach(c=>{const r=make('div','contact-row');r.append(make('b','',c.label));const a=make('a','',c.display);a.href='tel:'+c.phone;a.dir='ltr';r.append(a);card.append(r);});main.append(card);const msg=make('div','card');msg.style.marginTop='18px';msg.append(make('h3','',data.contact.messageTitle),make('p','',data.contact.message));main.append(msg);}
       }
