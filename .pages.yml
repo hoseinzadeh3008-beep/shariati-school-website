@@ -18,6 +18,7 @@ content:
           - { name: name, label: نام هنرستان, type: string, required: true }
           - { name: tagline, label: شعار سایت, type: string }
           - { name: subline, label: زیرعنوان, type: string }
+          - { name: logo, label: لوگوی سایت (اختیاری), type: image }
       - name: home
         label: صفحه اصلی
         type: object
