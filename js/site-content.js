@@ -5,6 +5,9 @@
   try{
     const response=await fetch(base+'data/site.json',{cache:'no-store'});if(!response.ok)throw new Error('site content unavailable');
     const data=await response.json();
+    document.querySelectorAll('.topline .container span').forEach((el,i)=>{if(i===0)text(el,data.brand.name);if(i===1)text(el,data.brand.tagline);});
+    document.querySelectorAll('.top .container').forEach(el=>{el.textContent=data.brand.name+' | '+data.brand.tagline;});
+    document.querySelectorAll('.brand-copy').forEach(el=>{const small=el.querySelector('small');el.firstChild.textContent=data.brand.name;if(small)text(small,data.brand.subline);});
     const isHome=!location.pathname.includes('/pages/');
     if(isHome){
       const h=document.querySelector('.hero h1');if(h){h.replaceChildren(document.createTextNode(data.home.heroTitle+' '),Object.assign(make('span','',data.home.heroHighlight),{}));}
@@ -19,7 +22,7 @@
       }
       const fields=document.querySelector('#fields');if(fields){const head=fields.querySelector('.section-head');if(head){text(head.querySelector('h2'),data.home.fieldsTitle);text(head.querySelector('p'),data.home.fieldsIntro);}const cards=fields.querySelector('.cards');if(cards)cards.replaceChildren(...(data.fields||[]).map(f=>{const a=make('a','field-card');a.href='/pages/'+f.slug;a.append(make('div','field-icon',f.icon),make('h3','',f.name),make('p','',f.description),make('span','field-label','آموزش فنی و مهارتی'));return a;}));}
       const news=document.querySelector('#news .section-head');if(news){text(news.querySelector('h2'),data.home.newsTitle);text(news.querySelector('p'),data.home.newsIntro);}
-      const contact=document.querySelector('#contact');if(contact){const head=contact.querySelector('.section-head');text(head?.querySelector('h2'),data.home.contactTitle);text(head?.querySelector('p'),data.home.contactIntro);const box=contact.querySelectorAll('.contact-box');if(box[1]){text(box[1].querySelector('h3'),data.home.contactMessageTitle);text(box[1].querySelector('p'),data.home.contactMessage);}}
+      const contact=document.querySelector('#contact');if(contact){const head=contact.querySelector('.section-head');text(head?.querySelector('h2'),data.home.contactTitle);text(head?.querySelector('p'),data.home.contactIntro);const box=contact.querySelectorAll('.contact-box');if(box[0]){const title=box[0].querySelector('h3');const items=box[0].querySelectorAll('.contact-item');if(items[0])text(items[0].querySelector('span'),data.contact.address);(data.contact.contacts||[]).forEach((c,i)=>{const row=items[i+1];if(row){text(row.querySelector('b'),c.label);const a=row.querySelector('a');if(a){a.href='tel:'+c.phone;text(a,c.display);}}});}if(box[1]){text(box[1].querySelector('h3'),data.home.contactMessageTitle);text(box[1].querySelector('p'),data.home.contactMessage);}}
     }else{
       const path=location.pathname.split('/').pop();
       if(path==='about.html'){
