@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="گالری تصاویر هنرستان دکتر علی شریعتی اسفراین؛ عکس کارگاه‌ها، فعالیت‌های آموزشی، مناسبت‌ها و فضای هنرستان.">
+<title>گالری تصاویر | هنرستان دکتر علی شریعتی اسفراین</title>
+<link rel="stylesheet" href="site-pages.css">
+<style>
+.gallery-intro{padding:48px 0;background:radial-gradient(circle at 10% 10%,#d4f3ee,transparent 28%),linear-gradient(120deg,#f4fcfd,#eaf8fb);border-bottom:1px solid var(--line)}
+.gallery-intro h1{font-size:clamp(28px,4vw,40px);margin:6px 0}.gallery-intro p{color:var(--muted);max-width:720px;margin:0}
+.gallery-content{padding:35px 0 65px}.filters{display:flex;gap:9px;flex-wrap:wrap;margin-bottom:24px}
+.filter-btn{border:1px solid var(--line);background:#fff;color:#456270;border-radius:24px;padding:8px 16px;font:inherit;font-size:13px;cursor:pointer}
+.filter-btn.active,.filter-btn:hover{background:var(--blue);color:#fff;border-color:var(--blue)}
+.gallery-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.gallery-card{border:1px solid var(--line);border-radius:18px;overflow:hidden;background:#fff;box-shadow:0 8px 24px #1534470a;transition:.2s}
+.gallery-card:hover{transform:translateY(-4px);box-shadow:0 14px 30px #15344716}
+.gallery-card[hidden]{display:none}
+.gallery-image{display:block;width:100%;height:230px;object-fit:cover;background:#eaf8fb;cursor:zoom-in}
+.gallery-caption{padding:14px 16px 16px}.gallery-caption h2{font-size:16px;margin:0 0 4px}.gallery-caption p{font-size:12px;color:var(--muted);margin:0 0 8px}
+.gallery-category{font-size:11px;color:#078b8d;background:#e9f8f6;border-radius:20px;padding:3px 10px;display:inline-block}
+.gallery-empty{padding:24px;background:#f5fbfc;border:1px dashed #b9dce2;border-radius:15px;color:var(--muted);text-align:center}
+.lightbox{position:fixed;inset:0;background:#071d28eF;z-index:50;display:none;align-items:center;justify-content:center;padding:22px}
+.lightbox.open{display:flex}.lightbox img{max-width:min(1100px,95vw);max-height:82vh;object-fit:contain;border-radius:12px}
+.lightbox-close{position:absolute;top:16px;left:18px;border:1px solid #ffffff66;background:#ffffff20;color:#fff;border-radius:10px;padding:8px 14px;font:inherit;cursor:pointer}
+@media(max-width:850px){.gallery-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.gallery-image{height:190px}}
+@media(max-width:520px){.gallery-grid{grid-template-columns:1fr}.gallery-image{height:230px}.gallery-intro{padding:36px 0}}
+</style>
+</head>
+<body>
+<div class="top"><div class="container">وب‌سایت رسمی هنرستان دکتر علی شریعتی اسفراین | مهارت امروز، آینده روشن فردا</div></div>
+<header class="head"><div class="container nav">
+<a class="brand" href="../index.html"><span class="mark">ش</span><span class="brand-copy">هنرستان فنی و حرفه‌ای دکتر علی شریعتی<small>اسفراین | آموزش‌های فنی و مهارتی</small></span></a>
+<nav class="links" id="siteLinks">
+<a href="../index.html">صفحه اصلی</a><a href="about.html">درباره هنرستان</a><a href="fields.html">رشته‌ها</a><a href="news.html">اخبار و اطلاعیه‌ها</a><a href="gallery.html" aria-current="page">گالری تصاویر</a><a href="contact.html">تماس با ما</a>
+</nav>
+<button class="menu-btn" id="menuBtn" type="button">فهرست ☰</button>
+</div></header>
+<main>
+<section class="gallery-intro"><div class="container"><span class="eyebrow">تصاویر و خاطرات هنرستان</span><h1>گالری تصاویر هنرستان</h1><p>گوشه‌ای از فضای کارگاه‌ها، فعالیت‌های آموزشی، برنامه‌ها و مناسبت‌های هنرستان دکتر علی شریعتی اسفراین را در این بخش ببینید.</p></div></section>
+<section class="gallery-content"><div class="container">
+<div class="filters" id="galleryFilters" aria-label="دسته‌بندی تصاویر"><button class="filter-btn active" data-filter="همه">همه تصاویر</button><button class="filter-btn" data-filter="کارگاه‌ها">کارگاه‌ها</button><button class="filter-btn" data-filter="مناسبت‌ها">مناسبت‌ها</button><button class="filter-btn" data-filter="فعالیت‌های آموزشی">فعالیت‌های آموزشی</button><button class="filter-btn" data-filter="فضای هنرستان">فضای هنرستان</button></div>
+<div class="gallery-grid" id="galleryGrid" aria-live="polite"></div>
+<p class="gallery-empty" id="galleryEmpty" hidden>هنوز تصویری در این دسته ثبت نشده است. تصاویر جدید به‌مرور در این بخش قرار می‌گیرند.</p>
+</div></section>
+</main>
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="نمایش بزرگ تصویر"><button class="lightbox-close" id="lightboxClose" type="button">بستن ✕</button><img id="lightboxImage" alt=""></div>
+<footer><div class="container"><span>© هنرستان فنی و حرفه‌ای دکتر علی شریعتی اسفراین</span><span>مهارت امروز، آینده روشن فردا</span></div></footer>
+<script>
+const menuBtn=document.getElementById('menuBtn'),links=document.getElementById('siteLinks');
+menuBtn.addEventListener('click',()=>links.classList.toggle('open'));
+links.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>links.classList.remove('open')));
+const grid=document.getElementById('galleryGrid'),empty=document.getElementById('galleryEmpty');
+const lightbox=document.getElementById('lightbox'),lightboxImage=document.getElementById('lightboxImage');
+let galleryItems=[];
+function renderGallery(filter='همه'){
+  grid.replaceChildren();
+  const shown=galleryItems.filter(item=>filter==='همه'||item.category===filter);
+  shown.forEach(item=>{
+    const card=document.createElement('article');card.className='gallery-card';
+    const img=document.createElement('img');img.className='gallery-image';img.src=item.image;img.alt=item.alt||item.title||'تصویر هنرستان';img.loading='lazy';img.addEventListener('click',()=>{lightboxImage.src=item.image;lightboxImage.alt=img.alt;lightbox.classList.add('open')});
+    const caption=document.createElement('div');caption.className='gallery-caption';
+    const title=document.createElement('h2');title.textContent=item.title||'تصویر هنرستان';
+    const desc=document.createElement('p');desc.textContent=item.description||'';
+    const category=document.createElement('span');category.className='gallery-category';category.textContent=item.category||'عمومی';
+    caption.append(title,desc,category);card.append(img,caption);grid.append(card);
+  });
+  empty.hidden=shown.length!==0;
+}
+document.getElementById('galleryFilters').addEventListener('click',event=>{
+  const button=event.target.closest('button[data-filter]');if(!button)return;
+  document.querySelectorAll('.filter-btn').forEach(b=>b.classList.toggle('active',b===button));
+  renderGallery(button.dataset.filter);
+});
+document.getElementById('lightboxClose').addEventListener('click',()=>lightbox.classList.remove('open'));
+lightbox.addEventListener('click',event=>{if(event.target===lightbox)lightbox.classList.remove('open')});
+document.addEventListener('keydown',event=>{if(event.key==='Escape')lightbox.classList.remove('open')});
+fetch('../data/gallery.json',{cache:'no-store'}).then(response=>{if(!response.ok)throw new Error('gallery unavailable');return response.json()}).then(items=>{galleryItems=Array.isArray(items)?items:[];renderGallery()}).catch(()=>{empty.hidden=false;empty.textContent='دریافت تصاویر ممکن نشد. لطفاً بعداً دوباره مراجعه کنید.'});
+</script>
+</body></html>
