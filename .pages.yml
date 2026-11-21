@@ -70,7 +70,7 @@ content:
           - { name: title, label: عنوان صفحه, type: string }
           - { name: subtitle, label: زیرعنوان صفحه, type: text }
           - { name: introTitle, label: عنوان معرفی, type: string }
-          - { name: introText, label: متن معرفی, type: rich-text }
+          - { name: introText, label: متن معرفی, type: text }
           - { name: approachTitle, label: عنوان رویکرد آموزشی, type: string }
           - name: approach
             label: کارت‌های رویکرد آموزشی
@@ -123,7 +123,7 @@ content:
       - { name: title, label: عنوان خبر, type: string, required: true }
       - { name: category, label: دسته‌بندی, type: string, required: true }
       - { name: summary, label: خلاصه خبر, type: text, required: true }
-      - { name: body, label: متن کامل خبر, type: rich-text, options: { format: html } }
+      - { name: body, label: متن کامل خبر, type: text }
       - { name: date, label: تاریخ انتشار, type: string }
       - { name: icon, label: نماد, type: string }
       - { name: image, label: تصویر خبر, type: image }
