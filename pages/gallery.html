@@ -67,6 +67,19 @@ function renderGallery(filter='همه'){
   });
   empty.hidden=shown.length!==0;
 }
+function renderFilters(){
+  const filters=document.getElementById('galleryFilters');
+  const categories=[...new Set(galleryItems.map(item=>(item.category||'سایر تصاویر').trim()).filter(Boolean))];
+  filters.replaceChildren();
+  const all=document.createElement('button');
+  all.type='button';all.className='filter-btn active';all.dataset.filter='همه';all.textContent='همه تصاویر';
+  filters.append(all);
+  categories.forEach(category=>{
+    const button=document.createElement('button');
+    button.type='button';button.className='filter-btn';button.dataset.filter=category;button.textContent=category;
+    filters.append(button);
+  });
+}
 document.getElementById('galleryFilters').addEventListener('click',event=>{
   const button=event.target.closest('button[data-filter]');if(!button)return;
   document.querySelectorAll('.filter-btn').forEach(b=>b.classList.toggle('active',b===button));
@@ -75,6 +88,6 @@ document.getElementById('galleryFilters').addEventListener('click',event=>{
 document.getElementById('lightboxClose').addEventListener('click',()=>lightbox.classList.remove('open'));
 lightbox.addEventListener('click',event=>{if(event.target===lightbox)lightbox.classList.remove('open')});
 document.addEventListener('keydown',event=>{if(event.key==='Escape')lightbox.classList.remove('open')});
-fetch('../data/gallery.json',{cache:'no-store'}).then(response=>{if(!response.ok)throw new Error('gallery unavailable');return response.json()}).then(items=>{galleryItems=Array.isArray(items)?items:[];renderGallery()}).catch(()=>{empty.hidden=false;empty.textContent='دریافت تصاویر ممکن نشد. لطفاً بعداً دوباره مراجعه کنید.'});
+fetch('../data/gallery.json',{cache:'no-store'}).then(response=>{if(!response.ok)throw new Error('gallery unavailable');return response.json()}).then(items=>{galleryItems=Array.isArray(items)?items:[];renderFilters();renderGallery()}).catch(()=>{empty.hidden=false;empty.textContent='دریافت تصاویر ممکن نشد. لطفاً بعداً دوباره مراجعه کنید.'});
 </script>
 </body></html>
