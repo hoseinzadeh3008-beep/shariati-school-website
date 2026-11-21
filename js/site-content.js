@@ -8,6 +8,8 @@
     document.querySelectorAll('.topline .container span').forEach((el,i)=>{if(i===0)text(el,data.brand.name);if(i===1)text(el,data.brand.tagline);});
     document.querySelectorAll('.top .container').forEach(el=>{el.textContent=data.brand.name+' | '+data.brand.tagline;});
     document.querySelectorAll('.brand-copy').forEach(el=>{const small=el.querySelector('small');el.firstChild.textContent=data.brand.name;if(small)text(small,data.brand.subline);});
+    document.querySelectorAll('.brand strong').forEach(el=>{const small=el.querySelector('small');if(el.firstChild)el.firstChild.textContent=data.brand.name;if(small)text(small,data.brand.subline);});
+    if(data.brand.logo)document.querySelectorAll('.logo img,.brand-logo').forEach(img=>{img.src=data.brand.logo;});
     const isHome=!location.pathname.includes('/pages/');
     if(isHome){
       const h=document.querySelector('.hero h1');if(h){h.replaceChildren(document.createTextNode(data.home.heroTitle+' '),Object.assign(make('span','',data.home.heroHighlight),{}));}
@@ -27,7 +29,7 @@
       const path=location.pathname.split('/').pop();
       if(path==='about.html'){
         text(document.querySelector('.hero h1'),data.about.title);text(document.querySelector('.hero p'),data.about.subtitle);
-        const main=document.querySelector('main.content');if(main){const photo=main.querySelector('.photo-grid');main.replaceChildren();if(photo)main.append(photo);main.append(make('h2','',data.about.introTitle),make('p','',data.about.introText),make('h2','',data.about.approachTitle));const grid=make('div','grid');(data.about.approach||[]).forEach(x=>{const card=make('article','card');card.append(make('span','tag',x.tag),make('h3','',x.title),make('p','',x.description));grid.append(card);});main.append(grid);const link=make('a','btn','مشاهده رشته‌های هنرستان');link.href='fields.html';const p=make('p');p.append(link);main.append(p);}
+        const main=document.querySelector('main.content');if(main){const photo=make('section','photo-grid');photo.style.cssText='display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;margin:32px 0';(data.about.photos||[]).forEach(p=>{const figure=make('figure');figure.style.cssText='margin:0;border:1px solid #dcebef;border-radius:18px;overflow:hidden;background:#fff';const img=make('img');img.src=p.image;img.alt=p.alt||p.title||'';img.loading='lazy';img.style.cssText='display:block;width:100%;height:260px;object-fit:cover';const cap=make('figcaption','',p.title);cap.style.cssText='padding:12px 16px;font-weight:700;color:#153447';figure.append(img,cap);photo.append(figure);});main.replaceChildren();if((data.about.photos||[]).length)main.append(photo);main.append(make('h2','',data.about.introTitle),make('p','',data.about.introText),make('h2','',data.about.approachTitle));const grid=make('div','grid');(data.about.approach||[]).forEach(x=>{const card=make('article','card');card.append(make('span','tag',x.tag),make('h3','',x.title),make('p','',x.description));grid.append(card);});main.append(grid);const link=make('a','btn','مشاهده رشته‌های هنرستان');link.href='fields.html';const p=make('p');p.append(link);main.append(p);}
       }
       if(path==='fields.html'){
         text(document.querySelector('.hero h1'),data.fieldsPage.title);text(document.querySelector('.hero p'),data.fieldsPage.subtitle);
