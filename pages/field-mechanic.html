@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="معرفی رشته مکانیک خودرو در هنرستان دکتر علی شریعتی اسفراین.">
+<title>مکانیک خودرو | هنرستان دکتر علی شریعتی اسفراین</title>
+<link rel="stylesheet" href="site-pages.css">
+<style>
+.detail-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:18px}
+.detail-card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:22px;margin-bottom:16px}
+.detail-card h2{font-size:19px;margin:0 0 12px;color:var(--ink)}
+.detail-card p{margin:0;color:var(--muted);font-size:14px}
+.detail-card ul{margin:0;padding-right:20px;color:#526f7c;font-size:14px}
+.detail-card li{padding:4px 0}
+.detail-symbol{width:72px;height:72px;border-radius:20px;background:linear-gradient(145deg,#e5f7f7,#eaf4fc);display:grid;place-items:center;font-size:36px;margin-bottom:14px}
+.detail-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}
+.detail-actions a{display:inline-flex;align-items:center;padding:10px 15px;border-radius:11px;font-size:13px;font-weight:700}
+.detail-actions .primary{background:var(--blue);color:#fff}
+.detail-actions .secondary{background:#eaf8fb;color:var(--blue);border:1px solid #cce6eb}
+@media(max-width:700px){.detail-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="top"><div class="container">وب‌سایت رسمی هنرستان دکتر علی شریعتی اسفراین | مهارت امروز، آینده روشن فردا</div></div>
+<header class="head"><div class="container nav">
+<a class="brand" href="../index.html"><span class="mark">🚗</span><span class="brand-copy">هنرستان فنی و حرفه‌ای دکتر علی شریعتی<small>اسفراین | آموزش‌های فنی و مهارتی</small></span></a>
+<button class="menu-btn" id="menuBtn" aria-label="باز کردن فهرست" aria-expanded="false">فهرست ☰</button>
+<nav class="links" id="navlinks"><a href="../index.html">صفحه اصلی</a><a href="about.html">درباره هنرستان</a><a href="fields.html">رشته‌ها</a><a href="news.html">اخبار و اطلاعیه‌ها</a><a href="contact.html">تماس با ما</a></nav>
+<a class="back-link" href="fields.html">← بازگشت به فهرست رشته‌ها</a>
+</div></header>
+<section class="hero"><div class="container"><span class="eyebrow">معرفی رشته شماره ۱</span><h1>مکانیک خودرو</h1><p>رشته مکانیک خودرو به شناخت ساختار خودرو و بررسی سامانه‌های اصلی آن می‌پردازد.</p></div></section>
+<main class="container content"><div class="detail-grid">
+<div>
+<section class="detail-card"><div class="detail-symbol">🚗</div><h2>درباره رشته</h2><p>رشته مکانیک خودرو به شناخت ساختار خودرو و بررسی سامانه‌های اصلی آن می‌پردازد. در این رشته، آموزش‌های نظری در کنار فعالیت‌های عملی و کارگاهی به درک بهتر مفاهیم کمک می‌کنند.</p></section>
+<section class="detail-card"><h2>موضوعات آموزشی</h2><ul><li>شناخت اجزای اصلی خودرو و وظیفه هر بخش</li><li>آشنایی با سامانه‌های موتور، انتقال قدرت و برق خودرو</li><li>اصول سرویس و نگهداری خودرو</li><li>آشنایی مقدماتی با روش‌های بررسی و عیب‌یابی</li></ul></section>
+</div>
+<div>
+<section class="detail-card"><h2>مهارت‌های مورد توجه</h2><p>دقت در مشاهده، کار عملی، رعایت اصول ایمنی و توانایی تحلیل عملکرد سامانه‌های فنی.</p></section>
+<section class="detail-card"><h2>زمینه‌های ادامه مسیر</h2><p>مهارت‌های این رشته می‌تواند زمینه ادامه آموزش و فعالیت در حوزه‌های تعمیر و نگهداری خودرو و خدمات فنی مرتبط را فراهم کند.</p></section>
+</div>
+</div><div class="detail-actions"><a class="primary" href="fields.html">مشاهده همه رشته‌ها</a><a class="secondary" href="../index.html#fields">بازگشت به صفحه اصلی</a></div></main>
+<footer><div class="container"><span>© هنرستان فنی و حرفه‌ای دکتر علی شریعتی اسفراین</span><span>مهارت امروز، آینده روشن فردا</span></div></footer>
+<script>
+const menuBtn=document.getElementById('menuBtn');const navlinks=document.getElementById('navlinks');
+if(menuBtn&&navlinks){menuBtn.addEventListener('click',()=>{const opened=navlinks.classList.toggle('open');menuBtn.setAttribute('aria-expanded',String(opened));});}
+</script>
+</body></html>
