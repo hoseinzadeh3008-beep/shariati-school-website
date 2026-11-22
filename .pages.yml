@@ -94,7 +94,17 @@ content:
           - { name: name, label: نام رشته, type: string, required: true }
           - { name: slug, label: نام فایل صفحه رشته, type: string }
           - { name: icon, label: نماد رشته, type: string }
-          - { name: description, label: توضیح رشته, type: text }
+          - { name: description, label: توضیح کوتاه رشته, type: text }
+          - { name: detailText, label: متن کامل درباره رشته, type: text }
+          - { name: topicsTitle, label: عنوان موضوعات آموزشی, type: string }
+          - name: topics
+            label: موضوعات آموزشی
+            type: string
+            list: true
+          - { name: skillsTitle, label: عنوان مهارت‌ها, type: string }
+          - { name: skillsText, label: توضیح مهارت‌های مورد توجه, type: text }
+          - { name: pathwaysTitle, label: عنوان زمینه‌های ادامه مسیر, type: string }
+          - { name: pathwaysText, label: توضیح زمینه‌های ادامه مسیر, type: text }
       - name: contact
         label: اطلاعات تماس
         type: object
