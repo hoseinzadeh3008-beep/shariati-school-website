@@ -141,6 +141,14 @@ content:
           - { name: skillsText, label: توضیح مهارت‌های مورد توجه, type: text }
           - { name: pathwaysTitle, label: عنوان زمینه‌های ادامه مسیر, type: string }
           - { name: pathwaysText, label: توضیح زمینه‌های ادامه مسیر, type: text }
+      - name: newsPage
+        label: صفحه اخبار و اطلاعیه‌ها
+        type: object
+        fields:
+          - { name: title, label: عنوان صفحه, type: string }
+          - { name: subtitle, label: زیرعنوان صفحه, type: text }
+          - { name: allLabel, label: عنوان فیلتر همه خبرها, type: string }
+          - { name: emptyText, label: پیام نبود خبر منتشرشده, type: text }
       - name: contact
         label: اطلاعات تماس
         type: object
