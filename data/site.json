@@ -223,7 +223,7 @@
     "items": [
       {
         "label": "صفحه اصلی",
-        "href": "#home"
+        "href": "/index.html#home"
       },
       {
         "label": "درباره هنرستان",
@@ -231,7 +231,7 @@
       },
       {
         "label": "چارت سازمانی",
-        "href": "#organization"
+        "href": "/index.html#organization"
       },
       {
         "label": "رشته‌ها",
