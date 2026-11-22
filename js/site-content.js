@@ -6,6 +6,14 @@
   try{
     const response=await fetch(base+'data/site.json',{cache:'no-store'});if(!response.ok)throw new Error('site content unavailable');
     const data=await response.json();
+    const nav=document.querySelector('#navlinks');
+    if(nav&&Array.isArray(data.navigation?.items)){
+      nav.replaceChildren(...data.navigation.items.filter(item=>item&&item.label&&item.href).map(item=>{
+        const link=make('a','',item.label);link.href=item.href;return link;
+      }));
+    }
+    const navCta=document.querySelector('.nav-cta');
+    if(navCta){if(data.navigation?.ctaLabel)text(navCta,data.navigation.ctaLabel);if(data.navigation?.ctaUrl)navCta.href=data.navigation.ctaUrl;navCta.target='_blank';navCta.rel='noopener';}
     document.querySelectorAll('.topline .container span').forEach((el,i)=>{if(i===0)text(el,data.brand.name);if(i===1)text(el,data.brand.tagline);});
     document.querySelectorAll('.top .container').forEach(el=>{el.textContent=data.brand.name+' | '+data.brand.tagline;});
     document.querySelectorAll('.brand-copy').forEach(el=>{const small=el.querySelector('small');el.firstChild.textContent=data.brand.name;if(small)text(small,data.brand.subline);});
@@ -15,7 +23,7 @@
     if(isHome){
       const h=document.querySelector('.hero h1');if(h){h.replaceChildren(document.createTextNode(data.home.heroTitle+' '),make('span','',data.home.heroHighlight),document.createTextNode(' '+(data.home.heroTitleEnd||'')));}
       text(document.querySelector('.hero .eyebrow'),data.home.heroEyebrow);text(document.querySelector('.hero p'),data.home.heroText);
-      const heroActions=document.querySelectorAll('.hero .actions .btn');if(heroActions[0])text(heroActions[0],data.home.heroPrimaryLabel);if(heroActions[1])text(heroActions[1],data.home.heroSecondaryLabel);
+      const heroActions=document.querySelectorAll('.hero .actions .btn');if(heroActions[0])text(heroActions[0],data.home.heroPrimaryLabel);if(heroActions[1])text(heroActions[1],data.home.heroSecondaryLabel);if(heroActions[0]&&data.home.heroPrimaryUrl)heroActions[0].href=data.home.heroPrimaryUrl;if(heroActions[1]&&data.home.heroSecondaryUrl)heroActions[1].href=data.home.heroSecondaryUrl;
       const aboutPanel=document.querySelector('.about-panel');if(aboutPanel){text(aboutPanel.querySelector('strong'),data.home.aboutPanelTitle);text(aboutPanel.querySelector('span'),data.home.aboutPanelSubtitle);}
       const orgKicker=document.querySelector('#organization .section-head .kicker');text(orgKicker,data.home.organizationKicker);
       const fieldsKicker=document.querySelector('#fields .section-head .kicker');text(fieldsKicker,data.home.fieldsKicker);
