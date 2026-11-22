@@ -153,6 +153,7 @@ content:
         label: اطلاعات تماس
         type: object
         fields:
+          - { name: eyebrow, label: متن بالای عنوان صفحه, type: string }
           - { name: title, label: عنوان صفحه, type: string }
           - { name: subtitle, label: زیرعنوان صفحه, type: text }
           - { name: sectionTitle, label: عنوان بخش اطلاعات تماس, type: string }
