@@ -13,8 +13,17 @@
     if(data.brand.logo)document.querySelectorAll('.logo img,.brand-logo').forEach(img=>{img.src=data.brand.logo;});
     const isHome=!location.pathname.includes('/pages/');
     if(isHome){
-      const h=document.querySelector('.hero h1');if(h){h.replaceChildren(document.createTextNode(data.home.heroTitle+' '),Object.assign(make('span','',data.home.heroHighlight),{}));}
+      const h=document.querySelector('.hero h1');if(h){h.replaceChildren(document.createTextNode(data.home.heroTitle+' '),make('span','',data.home.heroHighlight),document.createTextNode(' '+(data.home.heroTitleEnd||'')));}
       text(document.querySelector('.hero .eyebrow'),data.home.heroEyebrow);text(document.querySelector('.hero p'),data.home.heroText);
+      const heroActions=document.querySelectorAll('.hero .actions .btn');if(heroActions[0])text(heroActions[0],data.home.heroPrimaryLabel);if(heroActions[1])text(heroActions[1],data.home.heroSecondaryLabel);
+      const aboutPanel=document.querySelector('.about-panel');if(aboutPanel){text(aboutPanel.querySelector('strong'),data.home.aboutPanelTitle);text(aboutPanel.querySelector('span'),data.home.aboutPanelSubtitle);}
+      const orgKicker=document.querySelector('#organization .section-head .kicker');text(orgKicker,data.home.organizationKicker);
+      const fieldsKicker=document.querySelector('#fields .section-head .kicker');text(fieldsKicker,data.home.fieldsKicker);
+      const newsKicker=document.querySelector('#news .section-head .kicker');text(newsKicker,data.home.newsKicker);
+      const newsPanel=document.querySelector('.news-intro');if(newsPanel){text(newsPanel.querySelector('strong'),data.home.newsPanelTitle);text(newsPanel.querySelector('p'),data.home.newsPanelText);text(newsPanel.querySelector('a'),data.home.newsPanelButton);}
+      const contactKicker=document.querySelector('#contact .section-head .kicker');text(contactKicker,data.home.contactKicker);
+      const footer=document.querySelector('footer .footer-inner div');text(footer,data.home.footerText);
+
       const heroImg=document.querySelector('.hero-photo');if(heroImg){heroImg.src=data.home.heroImage;heroImg.alt=data.home.heroImageAlt||'';}text(document.querySelector('.hero-photo-caption'),data.home.heroImageCaption);
       const about=document.querySelector('.about-copy');if(about){text(about.querySelector('.kicker'),data.home.aboutKicker);text(about.querySelector('h3'),data.home.aboutTitle);text(about.querySelector('p'),data.home.aboutText);const list=about.querySelector('.feature-list');if(list){list.replaceChildren(...(data.home.aboutFeatures||[]).map(v=>{const d=make('div','feature');d.append(make('b','','✓'),document.createTextNode(' '+v));return d;}));}}
       const org=document.querySelector('.org-wrap');if(org){const manager=org.querySelector('.org-manager');if(manager){text(manager.querySelector('h3'),data.home.managerName);const roles=manager.querySelectorAll('.org-role');text(roles[0],'مدیریت هنرستان');text(roles[1],data.home.managerRole);}
