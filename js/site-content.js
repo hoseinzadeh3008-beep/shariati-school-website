@@ -88,8 +88,40 @@
         document.title=title+' | '+data.brand.name;
       }
       if(path==='contact.html'){
-        text(document.querySelector('.hero h1'),data.contact.title);text(document.querySelector('.hero p'),data.contact.subtitle);
-        const main=document.querySelector('main.content');if(main){main.replaceChildren(make('h2','','اطلاعات تماس'));const card=make('div','card');const row=make('div','contact-row');row.append(make('b','', 'نشانی هنرستان'),make('span','',data.contact.address));card.append(row);(data.contact.contacts||[]).forEach(c=>{const r=make('div','contact-row');r.append(make('b','',c.label));const a=make('a','',c.display);a.href='tel:'+c.phone;a.dir='ltr';r.append(a);card.append(r);});main.append(card);const msg=make('div','card');msg.style.marginTop='18px';msg.append(make('h3','',data.contact.messageTitle),make('p','',data.contact.message));main.append(msg);}
+        const contact=data.contact||{};
+        const title=contact.title||'تماس با ما';
+        text(document.querySelector('.hero h1'),title);
+        text(document.querySelector('.hero p'),contact.subtitle);
+        document.title=title+' | '+data.brand.name;
+        const main=document.querySelector('main.content');
+        if(main){
+          main.replaceChildren(make('h2','',contact.sectionTitle||'اطلاعات تماس'));
+          const card=make('div','card');
+          const addressRow=make('div','contact-row');
+          addressRow.append(make('b','',contact.addressLabel||'نشانی هنرستان'),make('span','',contact.address||''));
+          card.append(addressRow);
+          (contact.contacts||[]).forEach(item=>{
+            const row=make('div','contact-row');
+            row.append(make('b','',item.label||''));
+            const link=make('a','',item.display||item.phone||'');
+            link.href='tel:'+String(item.phone||'').replace(/[^0-9+]/g,'');
+            link.dir='ltr';
+            row.append(link);
+            card.append(row);
+          });
+          main.append(card);
+          const message=make('div','card');
+          message.style.marginTop='18px';
+          message.append(make('h3','',contact.messageTitle||''),make('p','',contact.message||''));
+          main.append(message);
+          if(contact.systemButtonUrl){
+            const action=make('a','btn',contact.systemButtonLabel||'ورود به سامانه هنرستان');
+            action.href=contact.systemButtonUrl;
+            action.target='_blank';
+            action.rel='noopener';
+            main.append(action);
+          }
+        }
       }
     }
     document.querySelectorAll('footer .container span,footer .footer-inner span').forEach((el,i)=>{if(i===1)text(el,data.brand.tagline);});
