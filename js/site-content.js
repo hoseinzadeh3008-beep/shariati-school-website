@@ -38,7 +38,30 @@
       }
       if(path.startsWith('field-')){
         const field=(data.fields||[]).find(x=>x.slug===path);
-        if(field){document.title=field.name+' | '+data.brand.name;text(document.querySelector('.hero h1'),field.name);text(document.querySelector('.hero p'),field.description);text(document.querySelector('.detail-symbol'),field.icon);const aboutCard=document.querySelector('.detail-card');if(aboutCard){const p=aboutCard.querySelector('p');text(p,field.description);}}
+        if(field){
+          document.title=field.name+' | '+data.brand.name;
+          text(document.querySelector('.hero h1'),field.name);
+          text(document.querySelector('.hero p'),field.description);
+          text(document.querySelector('.detail-symbol'),field.icon);
+          const cards=document.querySelectorAll('.detail-card');
+          if(cards[0])text(cards[0].querySelector('p'),field.detailText||field.description);
+          if(cards[1]){
+            if(field.topicsTitle)text(cards[1].querySelector('h2'),field.topicsTitle);
+            if(Array.isArray(field.topics)&&field.topics.length){
+              let list=cards[1].querySelector('ul');
+              if(!list){list=make('ul');cards[1].append(list);}
+              list.replaceChildren(...field.topics.map(item=>make('li','',item)));
+            }
+          }
+          if(cards[2]){
+            if(field.skillsTitle)text(cards[2].querySelector('h2'),field.skillsTitle);
+            if(field.skillsText)text(cards[2].querySelector('p'),field.skillsText);
+          }
+          if(cards[3]){
+            if(field.pathwaysTitle)text(cards[3].querySelector('h2'),field.pathwaysTitle);
+            if(field.pathwaysText)text(cards[3].querySelector('p'),field.pathwaysText);
+          }
+        }
       }
       if(path==='contact.html'){
         text(document.querySelector('.hero h1'),data.contact.title);text(document.querySelector('.hero p'),data.contact.subtitle);
