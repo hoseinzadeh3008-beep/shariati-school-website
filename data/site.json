@@ -217,7 +217,11 @@
       }
     ],
     "messageTitle": "پیام هنرستان",
-    "message": "هدف ما فراهم‌کردن فضایی پویا برای یادگیری، تجربه و رشد مهارت‌های هنرجویان است."
+    "message": "هدف ما فراهم‌کردن فضایی پویا برای یادگیری، تجربه و رشد مهارت‌های هنرجویان است.",
+    "sectionTitle": "اطلاعات تماس",
+    "addressLabel": "نشانی هنرستان",
+    "systemButtonLabel": "ورود به سامانه هنرستان ↗",
+    "systemButtonUrl": "https://shari-attendance.onrender.com"
   },
   "navigation": {
     "items": [
