@@ -26,6 +26,19 @@ content:
           - { name: heroEyebrow, label: متن بالای عنوان, type: string }
           - { name: heroTitle, label: عنوان اصلی, type: string }
           - { name: heroHighlight, label: واژه رنگی عنوان, type: string }
+          - { name: heroTitleEnd, label: ادامه عنوان اصلی, type: string }
+          - { name: heroPrimaryLabel, label: متن دکمه اصلی, type: string }
+          - { name: heroSecondaryLabel, label: متن دکمه دوم, type: string }
+          - { name: aboutPanelTitle, label: عنوان کارت شعار, type: string }
+          - { name: aboutPanelSubtitle, label: زیرعنوان کارت شعار, type: string }
+          - { name: organizationKicker, label: برچسب چارت سازمانی, type: string }
+          - { name: fieldsKicker, label: برچسب بخش رشته‌ها, type: string }
+          - { name: newsKicker, label: برچسب بخش اخبار, type: string }
+          - { name: newsPanelTitle, label: عنوان کادر اطلاع‌رسانی اخبار, type: string }
+          - { name: newsPanelText, label: متن کادر اطلاع‌رسانی اخبار, type: text }
+          - { name: newsPanelButton, label: متن دکمه پنل اخبار, type: string }
+          - { name: contactKicker, label: برچسب بخش تماس, type: string }
+          - { name: footerText, label: متن پایین سایت, type: string }
           - { name: heroText, label: توضیح صفحه اصلی, type: text }
           - { name: heroImage, label: تصویر اصلی, type: image }
           - { name: heroImageAlt, label: توضیح تصویر اصلی, type: string }
