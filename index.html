@@ -111,7 +111,7 @@ footer{background:#12384b;color:#d9edf1;padding:28px 0;font-size:12px}.footer-in
 </main>
 <footer><div class="container footer-inner"><div>© هنرستان فنی و حرفه‌ای دکتر علی شریعتی اسفراین</div><span>مهارت امروز، آینده روشن فردا</span></div></footer>
 <script>
-const menuBtn=document.getElementById('menuBtn');const nav=document.getElementById('navlinks');menuBtn.addEventListener('click',()=>{nav.classList.toggle('open')});nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>nav.classList.remove('open')));
+const menuBtn=document.getElementById('menuBtn');const nav=document.getElementById('navlinks');menuBtn.addEventListener('click',()=>{nav.classList.toggle('open')});nav.addEventListener('click',event=>{if(event.target.closest('a'))nav.classList.remove('open')});
 (async function loadSchoolNews(){
   const grid=document.getElementById('noticeGrid');
   const empty=document.getElementById('newsEmpty');
