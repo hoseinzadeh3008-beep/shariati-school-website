@@ -97,7 +97,9 @@
     "newsPanelText": "خبرها و اطلاعیه‌ها پس از بررسی و تأیید مدیریت در این بخش منتشر می‌شوند.",
     "newsPanelButton": "ورود به پنل مدیریت اخبار ↗",
     "contactKicker": "ارتباط با ما",
-    "footerText": "© هنرستان فنی و حرفه‌ای دکتر علی شریعتی اسفراین"
+    "footerText": "© هنرستان فنی و حرفه‌ای دکتر علی شریعتی اسفراین",
+    "heroPrimaryUrl": "#fields",
+    "heroSecondaryUrl": "/pages/about.html"
   },
   "about": {
     "title": "درباره هنرستان",
@@ -216,5 +218,39 @@
     ],
     "messageTitle": "پیام هنرستان",
     "message": "هدف ما فراهم‌کردن فضایی پویا برای یادگیری، تجربه و رشد مهارت‌های هنرجویان است."
+  },
+  "navigation": {
+    "items": [
+      {
+        "label": "صفحه اصلی",
+        "href": "#home"
+      },
+      {
+        "label": "درباره هنرستان",
+        "href": "/pages/about.html"
+      },
+      {
+        "label": "چارت سازمانی",
+        "href": "#organization"
+      },
+      {
+        "label": "رشته‌ها",
+        "href": "/pages/fields.html"
+      },
+      {
+        "label": "اخبار و اطلاعیه‌ها",
+        "href": "/pages/news.html"
+      },
+      {
+        "label": "گالری تصاویر",
+        "href": "/pages/gallery.html"
+      },
+      {
+        "label": "تماس با ما",
+        "href": "/pages/contact.html"
+      }
+    ],
+    "ctaLabel": "ورود به سامانه هنرستان ↗",
+    "ctaUrl": "https://shari-attendance.onrender.com"
   }
 }
