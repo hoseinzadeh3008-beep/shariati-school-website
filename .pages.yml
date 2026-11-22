@@ -19,6 +19,19 @@ content:
           - { name: tagline, label: شعار سایت, type: string }
           - { name: subline, label: زیرعنوان, type: string }
           - { name: logo, label: لوگوی سایت (اختیاری), type: image }
+      - name: navigation
+        label: منوی اصلی و لینک سامانه
+        type: object
+        fields:
+          - name: items
+            label: گزینه‌های منوی اصلی
+            type: object
+            list: true
+            fields:
+              - { name: label, label: عنوان گزینه, type: string, required: true }
+              - { name: href, label: نشانی مقصد لینک, type: string, required: true }
+          - { name: ctaLabel, label: متن دکمه ورود به سامانه, type: string }
+          - { name: ctaUrl, label: نشانی سامانه, type: string }
       - name: home
         label: صفحه اصلی
         type: object
@@ -29,6 +42,8 @@ content:
           - { name: heroTitleEnd, label: ادامه عنوان اصلی, type: string }
           - { name: heroPrimaryLabel, label: متن دکمه اصلی, type: string }
           - { name: heroSecondaryLabel, label: متن دکمه دوم, type: string }
+          - { name: heroPrimaryUrl, label: لینک دکمه اصلی, type: string }
+          - { name: heroSecondaryUrl, label: لینک دکمه دوم, type: string }
           - { name: aboutPanelTitle, label: عنوان کارت شعار, type: string }
           - { name: aboutPanelSubtitle, label: زیرعنوان کارت شعار, type: string }
           - { name: organizationKicker, label: برچسب چارت سازمانی, type: string }
