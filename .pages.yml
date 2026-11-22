@@ -204,6 +204,7 @@ content:
       - { name: description, label: توضیحات تصویر, type: text }
       - { name: image, label: فایل تصویر, type: image, required: true }
       - { name: alt, label: متن جایگزین تصویر, type: string }
+      - { name: order, label: ترتیب نمایش (عدد کمتر زودتر نمایش داده می‌شود), type: number }
 
 settings:
   content:
