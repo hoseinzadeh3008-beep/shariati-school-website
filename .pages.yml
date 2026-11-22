@@ -80,6 +80,14 @@ content:
               - { name: tag, label: برچسب, type: string }
               - { name: title, label: عنوان, type: string }
               - { name: description, label: توضیحات, type: text }
+          - name: photos
+            label: تصاویر صفحه درباره هنرستان
+            type: object
+            list: true
+            fields:
+              - { name: title, label: عنوان تصویر, type: string, required: true }
+              - { name: image, label: فایل تصویر, type: image, required: true }
+              - { name: alt, label: متن جایگزین تصویر, type: string }
       - name: fieldsPage
         label: صفحه رشته‌ها
         type: object
