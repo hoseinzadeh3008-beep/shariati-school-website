@@ -80,6 +80,13 @@
           }
         }
       }
+      if(path==='news.html'){
+        const page=data.newsPage||{};
+        const title=page.title||'اخبار و اطلاعیه‌ها';
+        text(document.querySelector('.hero h1'),title);
+        text(document.querySelector('.hero p'),page.subtitle);
+        document.title=title+' | '+data.brand.name;
+      }
       if(path==='contact.html'){
         text(document.querySelector('.hero h1'),data.contact.title);text(document.querySelector('.hero p'),data.contact.subtitle);
         const main=document.querySelector('main.content');if(main){main.replaceChildren(make('h2','','اطلاعات تماس'));const card=make('div','card');const row=make('div','contact-row');row.append(make('b','', 'نشانی هنرستان'),make('span','',data.contact.address));card.append(row);(data.contact.contacts||[]).forEach(c=>{const r=make('div','contact-row');r.append(make('b','',c.label));const a=make('a','',c.display);a.href='tel:'+c.phone;a.dir='ltr';r.append(a);card.append(r);});main.append(card);const msg=make('div','card');msg.style.marginTop='18px';msg.append(make('h3','',data.contact.messageTitle),make('p','',data.contact.message));main.append(msg);}
