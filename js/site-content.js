@@ -90,8 +90,11 @@
       if(path==='contact.html'){
         const contact=data.contact||{};
         const title=contact.title||'تماس با ما';
+        text(document.querySelector('.hero .eyebrow'),contact.eyebrow||data.brand.name);
         text(document.querySelector('.hero h1'),title);
         text(document.querySelector('.hero p'),contact.subtitle);
+        const description=document.querySelector('meta[name="description"]');
+        if(description&&contact.subtitle)description.content=contact.subtitle;
         document.title=title+' | '+data.brand.name;
         const main=document.querySelector('main.content');
         if(main){
