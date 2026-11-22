@@ -55,7 +55,7 @@ const lightbox=document.getElementById('lightbox'),lightboxImage=document.getEle
 let galleryItems=[];
 function renderGallery(filter='همه'){
   grid.replaceChildren();
-  const shown=galleryItems.filter(item=>filter==='همه'||item.category===filter);
+  const shown=galleryItems.filter(item=>filter==='همه'||item.category===filter).sort((a,b)=>{const ao=Number(a.order);const bo=Number(b.order);return (Number.isFinite(ao)?ao:0)-(Number.isFinite(bo)?bo:0)});
   shown.forEach(item=>{
     const card=document.createElement('article');card.className='gallery-card';
     const img=document.createElement('img');img.className='gallery-image';img.src=item.image;img.alt=item.alt||item.title||'تصویر هنرستان';img.loading='lazy';img.addEventListener('click',()=>{lightboxImage.src=item.image;lightboxImage.alt=img.alt;lightbox.classList.add('open')});
