@@ -95,7 +95,9 @@ content:
         label: صفحه درباره هنرستان
         type: object
         fields:
+          - { name: eyebrow, label: متن بالای عنوان صفحه, type: string }
           - { name: title, label: عنوان صفحه, type: string }
+          - { name: metaDescription, label: توضیحات معرفی برای موتورهای جست‌وجو, type: text }
           - { name: subtitle, label: زیرعنوان صفحه, type: text }
           - { name: introTitle, label: عنوان معرفی, type: string }
           - { name: introText, label: متن معرفی, type: text }
@@ -114,8 +116,10 @@ content:
             list: true
             fields:
               - { name: title, label: عنوان تصویر, type: string, required: true }
+              - { name: caption, label: توضیح زیر تصویر, type: text }
               - { name: image, label: فایل تصویر, type: image, required: true }
               - { name: alt, label: متن جایگزین تصویر, type: string }
+              - { name: order, label: ترتیب نمایش تصویر (عدد کمتر زودتر), type: number }
       - name: fieldsPage
         label: صفحه رشته‌ها
         type: object
