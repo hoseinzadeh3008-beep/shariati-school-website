@@ -155,6 +155,8 @@ content:
         fields:
           - { name: title, label: عنوان صفحه, type: string }
           - { name: subtitle, label: زیرعنوان صفحه, type: text }
+          - { name: sectionTitle, label: عنوان بخش اطلاعات تماس, type: string }
+          - { name: addressLabel, label: عنوان نشانی, type: string }
           - { name: address, label: نشانی, type: text }
           - name: contacts
             label: شماره‌های تماس
@@ -166,6 +168,8 @@ content:
               - { name: display, label: شماره نمایشی, type: string }
           - { name: messageTitle, label: عنوان پیام, type: string }
           - { name: message, label: متن پیام, type: text }
+          - { name: systemButtonLabel, label: متن دکمه سامانه هنرستان, type: string }
+          - { name: systemButtonUrl, label: نشانی سامانه هنرستان, type: string }
 
   - name: news
     label: اخبار و اطلاعیه‌ها
