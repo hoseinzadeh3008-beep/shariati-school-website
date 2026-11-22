@@ -221,7 +221,8 @@
     "sectionTitle": "اطلاعات تماس",
     "addressLabel": "نشانی هنرستان",
     "systemButtonLabel": "ورود به سامانه هنرستان ↗",
-    "systemButtonUrl": "https://shari-attendance.onrender.com"
+    "systemButtonUrl": "https://shari-attendance.onrender.com",
+    "eyebrow": "هنرستان فنی و حرفه‌ای دکتر علی شریعتی اسفراین"
   },
   "navigation": {
     "items": [
